@@ -1,0 +1,52 @@
+body{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    background: #dde4ff;
+}
+.home{
+    padding: 30px;
+}
+.form1{
+    font-size: large;
+    text-align: center;
+    margin: 12px;
+}
+.task{
+    width: 500px;
+    padding: 10px;
+    margin: 5px;
+}
+.btn{
+    margin: 5px;
+    padding: 10px;
+}
+.items{
+    display: flex;
+    justify-content: space-between;
+    background-color: aliceblue;
+    border-radius: 5px;
+    padding: 12px;
+    margin: auto;
+    width: 500px;
+}
+.del_btn{
+    color: red;
+    margin: 6px;
+    padding: 4px;
+}
+.del_btn:hover{
+    background-color: rgb(212, 195, 199);
+    color: grey;
+}
+hr{
+    width: 500px;
+}
+.edit_btn{
+    padding: 6px;
+    color: black;
+    text-decoration: none;
+}
+.edit_btn:hover{
+    color: gray;
+}

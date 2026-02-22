@@ -1,22 +1,35 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ToDo Website</title>
+    <link rel="stylesheet" href="{% static "todo.css" %}">
 </head>
 <body>
-    <h1 style="text-align:center;">ToDo Website</h1>
-    <form style="text-align:center;" action="" method="POST">
-        {% csrf_token %}
-        <span style="font-weight: bold;">Enter the Tasks :</span>
-        <input type="text" name="title" placeholder="Add a new Task.." required>
-        <button type="submit" name="add_task">+</button>
-    </form>
-    <div class="tasks">
-        {% for todo in todo %}
-            <p>{{todo.title}}</p>
-        {% endfor %}
+    <div class="home">
+        <h1 style="text-align:center;">ToDo Website</h1>
+        <div class="container">
+            <form class="form1" method="POST">
+            {% csrf_token %}
+                <input class="task" type="text" name="title" placeholder="Enter task">
+                <button class="btn" type="submit">Add</button>
+            </form>
+            <div class="container2">
+                {% for task in tasks %}
+                <div class="items">
+                    <p>{{task.title}}</p>
+                    <form class="del_edit_btn" action="{% url 'delete' task.id %}" method="POST" style="display:inline;">
+                        {% csrf_token %}
+                        <button class="del_btn" type="submit">Delete</button>
+                        <a class="edit_btn" href="{% url "update" task.id %}">Edit</a>
+                    </form>
+                </div>
+                <hr>
+                {% endfor %}
+            </div>
+        </div>
     </div>
 </body>
 </html>

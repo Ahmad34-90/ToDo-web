@@ -1,0 +1,28 @@
+body{
+    background: #dde4ff;
+}
+.update{
+    text-align: center;
+    margin: 50px;
+    padding: 12px;
+}
+.update_form{
+    padding: 12px;
+    margin: 12px;
+}
+.input{
+    width: 40rem;
+    padding: 10px;
+    margin: 10px;
+}
+.update_btn{
+    padding: 10px;
+    margin: 10px;
+}
+.back_link a{
+    padding: 12px;
+    color: black;
+}
+a:hover{
+    color: #43454d;
+}
