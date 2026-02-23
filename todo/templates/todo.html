@@ -1,35 +1,31 @@
+{% extends "base.html" %}
 {% load static %}
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ToDo Website</title>
-    <link rel="stylesheet" href="{% static "todo.css" %}">
-</head>
-<body>
-    <div class="home">
-        <h1 style="text-align:center;">ToDo Website</h1>
-        <div class="container">
-            <form class="form1" method="POST">
+{% block extra_css %}
+<link rel="stylesheet" href="{% static "todo.css" %}">
+{% endblock extra_css %}
+{% block content %}
+<div class="home">
+    <h1 style="text-align:center;">ToDo Website</h1>
+    <div class="container">
+        <form class="form1" method="POST">
             {% csrf_token %}
-                <input class="task" type="text" name="title" placeholder="Enter task">
-                <button class="btn" type="submit">Add</button>
-            </form>
-            <div class="container2">
-                {% for task in tasks %}
-                <div class="items">
-                    <p>{{task.title}}</p>
-                    <form class="del_edit_btn" action="{% url 'delete' task.id %}" method="POST" style="display:inline;">
-                        {% csrf_token %}
-                        <button class="del_btn" type="submit">Delete</button>
-                        <a class="edit_btn" href="{% url "update" task.id %}">Edit</a>
-                    </form>
-                </div>
-                <hr>
-                {% endfor %}
+            <input class="task" type="text" name="title" placeholder="Enter task">
+            <button class="btn" type="submit">Add</button>
+        </form>
+        <div class="container2">
+            {% for task in tasks %}
+            <div class="items">
+                <p>{{task.title}}</p>
+                <form class="del_edit_btn" action="{% url 'delete' task.id %}" method="POST" style="display:inline;">
+                    {% csrf_token %}
+                    <button class="del_btn" type="submit">Delete</button>
+                    <a class="edit_btn" href="{% url "update" task.id %}">Edit</a>
+                </form>
             </div>
+            <hr>
+            {% endfor %}
         </div>
     </div>
-</body>
-</html>
+</div>
+
+{% endblock %}
